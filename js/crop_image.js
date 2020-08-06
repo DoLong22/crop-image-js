@@ -10,10 +10,10 @@ function crop(url, aspectRatio) {
             // let's store the width and height of our image
             const inputWidth = inputImage.naturalWidth;
             const inputHeight = inputImage.naturalHeight;
-
+console.log("width="+inputWidth+" " +"height="+inputHeight);
             // get the aspect ratio of the input image
             const inputImageAspectRatio = inputWidth / inputHeight;
-
+console.log(inputImageAspectRatio);
             // if it's bigger than our target aspect ratio
             let outputWidth = inputWidth;
             let outputHeight = inputHeight;
@@ -22,21 +22,24 @@ function crop(url, aspectRatio) {
             } else if (inputImageAspectRatio < aspectRatio) {
                 outputHeight = inputWidth / aspectRatio;
             }
+            console.log("outputwidth="+outputWidth+" " +"outputheight="+outputHeight);
 
             // calculate the position to draw the image at
             const outputX = (outputWidth - inputWidth) * .5;
             const outputY = (outputHeight - inputHeight) * .5;
 
+            console.log(outputX+" "+outputY)
             // create a canvas that will present the output image
             const outputImage = document.createElement('canvas');
 
             // set it to the same size as the image
-            outputImage.width = outputWidth;
-            outputImage.height = outputHeight;
+            outputImage.width = 345;
+            outputImage.height = 230;
 
             // draw our image at position 0, 0 on the canvas
             const ctx = outputImage.getContext('2d');
-            ctx.drawImage(inputImage, outputX, outputY);
+            //ctx.drawImage(inputImage, 0, 120);
+            ctx.drawImage(inputImage, 33, 71, 104, 124, 21, 120, 104, 124);
             document.body.appendChild(inputImage);
             
             resolve(outputImage);
