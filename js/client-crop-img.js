@@ -1,4 +1,4 @@
-var loadFile = function (event) {
+const loadFile = function (event) {
     const windowCropping = document.getElementById('window-cropping');
     const image = document.getElementById('output');
     image.src = URL.createObjectURL(event.target.files[0]);
